@@ -243,3 +243,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/snake/snake/snake.csproj
+*.config
+/snake/snake.sln
+/snake/snake/Properties/AssemblyInfo.cs
