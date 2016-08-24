@@ -8,8 +8,10 @@ namespace snake
 {
     class Snake : Figure
     {
+        Direction direction;
         public Snake(Point tail, int length, Direction direction)
         {
+            this.direction = direction;
             for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
