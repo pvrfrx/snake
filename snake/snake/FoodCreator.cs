@@ -11,7 +11,7 @@ namespace snake
         private int widht = 0;
         private int height = 0;
         static char c = 'O';
-        Random rand = new Random();
+        
         public FoodCreator(int widht, int height)
         {
             this.widht = widht;
@@ -19,9 +19,8 @@ namespace snake
         }
         public Point CreateFood()
         {
-            int x = rand.Next(this.widht);
-            int y = rand.Next(this.height);
-            Point p = new Point(x,y,c);
+            Random rand = new Random();
+            Point p = new Point(rand.Next(this.widht), rand.Next(this.height), c);
             p.Draw();
             return p;
         }
