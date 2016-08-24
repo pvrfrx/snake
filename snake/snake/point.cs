@@ -29,5 +29,13 @@ namespace snake
             Console.SetCursorPosition(x, y);
             Console.Write(c);
         }
+        public void Move(Direction direction, int offset)
+        {
+            if (direction == Direction.UP) this.y = +offset;
+            else if (direction == Direction.DOWN) this.y = -offset;
+            else if (direction == Direction.LEFT) this.x = -offset;
+            else if (direction == Direction.RIGHT) this.x = +offset;
+        }
+
     }
 }

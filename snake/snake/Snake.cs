@@ -13,7 +13,13 @@ namespace snake
             for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
-                listPoint.Add(new Point)
+                p.M
+                if (direction==UP) tail.y = +i;
+                else if (direction == DOWN)
+                {
+
+                }
+                listPoint.Add(new Point);
             }
         }
     }
