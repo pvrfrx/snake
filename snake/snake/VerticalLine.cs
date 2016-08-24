@@ -8,7 +8,7 @@ namespace snake
 {
     class VerticalLine : Figure
     {
-        public VerticalLine(int yUp, int yDown, int x, char c)
+        public VerticalLine(int x, int yUp, int yDown, char c)
         {
             for (int i = yUp; i < yDown; i++)
             {
