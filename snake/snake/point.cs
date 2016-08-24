@@ -42,5 +42,11 @@ namespace snake
             this.c = ' ';
             this.Draw();
         }
+
+        internal bool EqualsCoordinate(Point p)
+        {
+            if (this.x == p.x && this.y == p.y) return true;
+            else return false;
+        }
     }
 }

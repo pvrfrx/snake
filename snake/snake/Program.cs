@@ -24,10 +24,14 @@ namespace snake
 
             Point tailSnake1 = new Point(5, 5, '$');
             Snake snake1 = new Snake(tailSnake1, 1, Direction.DOWN);
-            FoodCreator food = new FoodCreator(80, 25);
-            food.CreateFood();
+            FoodCreator foodCreator = new FoodCreator(10, 10);
+            Point food = foodCreator.CreateFood();
             while (true) //Выход по клавише Q
-            { 
+            {
+                if (snake1.Eat(food))
+                {
+                    food = foodCreator.CreateFood();
+                } 
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();

@@ -29,7 +29,6 @@ namespace snake
             tail.Clear();
             head.Draw();
             listPoint.Remove(tail);
-            
         }
 
         private Point GetNextPoint()
@@ -45,6 +44,15 @@ namespace snake
             else if (key.Key == ConsoleKey.LeftArrow) this.direction = Direction.LEFT;
             else if (key.Key == ConsoleKey.UpArrow) this.direction = Direction.UP;
             else if (key.Key == ConsoleKey.DownArrow) this.direction = Direction.DOWN;
+        }
+
+        internal bool Eat(Point p)
+        {
+            if (listPoint.Last().EqualsCoordinate(p))
+            {
+                return true;
+            }
+            else return false;
         }
 
     }
