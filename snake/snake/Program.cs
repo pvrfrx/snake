@@ -30,7 +30,7 @@ namespace snake
             {
                 if (snake1.Eat(food))
                 {
-                    food = foodCreator.CreateFood();
+                    food = foodCreator.CreateFood(snake1);
                 } 
                 if (Console.KeyAvailable)
                 {

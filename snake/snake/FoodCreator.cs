@@ -20,7 +20,23 @@ namespace snake
         public Point CreateFood(Snake snake)
         {
             Random rand = new Random();
-            Point p = new Point(rand.Next(this.widht), rand.Next(this.height), c);
+            int x=1;
+            int y=1; 
+            for (int i = 0; i < 1; i++)
+            {
+                x = rand.Next(this.widht);
+                y = rand.Next(this.height); 
+                foreach (Point item in snake.GetListPoint())
+                {
+                    if (item.x==x && item.y==y)
+                    {
+                        i--;
+                        break;
+                    }
+                }
+            }
+            
+            Point p = new Point(x, y, c);
             p.Draw();
             return p;
         }

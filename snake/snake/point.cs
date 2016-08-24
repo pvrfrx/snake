@@ -26,8 +26,11 @@ namespace snake
         }
         public void Draw()
         {
+            if (x>-1 && y>-1)
+            {
             Console.SetCursorPosition(x, y);
             Console.Write(c);
+            }
         }
         public void Move(Direction direction, int offset)
         {
