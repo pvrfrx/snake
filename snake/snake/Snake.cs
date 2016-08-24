@@ -23,10 +23,11 @@ namespace snake
         internal void Move()
         {
             Point tail = listPoint.First();
+            listPoint.Remove(tail);
             Point head = GetNextPoint();
             listPoint.Add(head);
-            head.Draw();
             tail.Clear();
+            head.Draw();
         }
 
         private Point GetNextPoint()
