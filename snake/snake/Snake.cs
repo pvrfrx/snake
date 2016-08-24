@@ -19,5 +19,21 @@ namespace snake
                 listPoint.Add(p);
             }
         }
+
+        internal void Move()
+        {
+            Point tail = listPoint.First();
+            Point head = GetNextPoint();
+            listPoint.Add(head);
+            head.Draw();
+            tail.Clear();
+        }
+
+        private Point GetNextPoint()
+        {
+            Point head = listPoint.Last();
+            head.Move(this.direction, 1);
+            return head;
+        }
     }
 }

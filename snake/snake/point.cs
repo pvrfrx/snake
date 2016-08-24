@@ -37,5 +37,10 @@ namespace snake
             else if (direction == Direction.RIGHT) this.x = this.y + offset;
         }
 
+        internal void Clear()
+        {
+            this.c = ' ';
+            this.Draw();
+        }
     }
 }
