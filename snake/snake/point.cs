@@ -18,6 +18,12 @@ namespace snake
             this.y = y;
             this.c = c;
         }
+        public Point(Point p)
+        {
+            this.x = p.x;
+            this.y = p.y;
+            this.c = p.c;
+        }
         public void Draw()
         {
             Console.SetCursorPosition(x, y);

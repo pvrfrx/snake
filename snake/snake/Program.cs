@@ -22,7 +22,6 @@ namespace snake
             rightBorder.Draw();
 
             Console.ReadLine();
-           
         }
 
     }
