@@ -31,10 +31,10 @@ namespace snake
         }
         public void Move(Direction direction, int offset)
         {
-            if (direction == Direction.UP) this.y = +offset;
-            else if (direction == Direction.DOWN) this.y = -offset;
-            else if (direction == Direction.LEFT) this.x = -offset;
-            else if (direction == Direction.RIGHT) this.x = +offset;
+            if (direction == Direction.UP) this.y = this.y - offset;
+            else if (direction == Direction.DOWN) this.y = this.y + offset;
+            else if (direction == Direction.LEFT) this.x = this.y - offset;
+            else if (direction == Direction.RIGHT) this.x = this.y + offset;
         }
 
     }
