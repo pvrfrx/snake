@@ -18,23 +18,34 @@ namespace snake
                 p.Move(direction, i);
                 listPoint.Add(p);
             }
+            this.Draw();
         }
 
         internal void Move()
         {
             Point tail = listPoint.First();
-            listPoint.Remove(tail);
             Point head = GetNextPoint();
             listPoint.Add(head);
             tail.Clear();
             head.Draw();
+            listPoint.Remove(tail);
+            
         }
 
         private Point GetNextPoint()
         {
-            Point head = listPoint.Last();
+            Point head = new Point(listPoint.Last());
             head.Move(this.direction, 1);
             return head;
         }
+
+        internal void ChangeDirection(ConsoleKeyInfo key)
+        {
+            if (key.Key == ConsoleKey.RightArrow) this.direction = Direction.RIGHT;
+            else if (key.Key == ConsoleKey.LeftArrow) this.direction = Direction.LEFT;
+            else if (key.Key == ConsoleKey.UpArrow) this.direction = Direction.UP;
+            else if (key.Key == ConsoleKey.DownArrow) this.direction = Direction.DOWN;
+        }
+
     }
 }

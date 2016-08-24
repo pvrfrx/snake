@@ -33,8 +33,8 @@ namespace snake
         {
             if (direction == Direction.UP) this.y = this.y - offset;
             else if (direction == Direction.DOWN) this.y = this.y + offset;
-            else if (direction == Direction.LEFT) this.x = this.y - offset;
-            else if (direction == Direction.RIGHT) this.x = this.y + offset;
+            else if (direction == Direction.LEFT) this.x = this.x - offset;
+            else if (direction == Direction.RIGHT) this.x = this.x + offset;
         }
 
         internal void Clear()

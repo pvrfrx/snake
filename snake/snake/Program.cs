@@ -23,17 +23,19 @@ namespace snake
             rightBorder.Draw();
 
             Point tailSnake1 = new Point(5, 5, '$');
-            Snake snake1 = new Snake(tailSnake1, 10, Direction.DOWN);
-            snake1.Draw();
-            Thread.Sleep(1000);
-            snake1.Move();
-            Thread.Sleep(1000);
-            snake1.Move();
-            Thread.Sleep(1000);
-            snake1.Move();
+            Snake snake1 = new Snake(tailSnake1, 1, Direction.DOWN);
 
-            Console.ReadLine();
+            while (true) //Выход по клавише Q
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.Q) break;
+                    else snake1.ChangeDirection(key);
+                }
+                snake1.Move();
+                Thread.Sleep(200);
+            }
         }
-
     }
 }
