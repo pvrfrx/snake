@@ -37,6 +37,12 @@ namespace snake
             head.Move(this.direction, 1);
             return head;
         }
+        private Point GetPrevPoint()
+        {
+            Point head = new Point(listPoint.First());
+            head.Move(this.direction, -1);
+            return head;
+        }
 
         internal void ChangeDirection(ConsoleKeyInfo key)
         {
@@ -50,10 +56,26 @@ namespace snake
         {
             if (listPoint.Last().EqualsCoordinate(p))
             {
+                this.Grow();
                 return true;
             }
             else return false;
         }
 
+        private void Grow()
+        {
+            listPoint = AddItemInFirstPosition(listPoint);
+        }
+
+        private List<Point> AddItemInFirstPosition(List<Point> listPoint)
+        {
+            List<Point> result = new List<Point>();
+            result.Add(GetPrevPoint());
+            foreach (Point item in listPoint)
+            {
+                result.Add(item);
+            }
+            return result;
+        }
     }
 }

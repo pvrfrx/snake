@@ -34,7 +34,7 @@ namespace snake
                 } 
                 if (Console.KeyAvailable)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
+                    ConsoleKeyInfo key = Console.ReadKey(true);
                     if (key.Key == ConsoleKey.Q) break;
                     else snake1.ChangeDirection(key);
                 }
