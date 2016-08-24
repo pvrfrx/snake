@@ -17,7 +17,7 @@ namespace snake
             this.widht = widht;
             this.height = height;
         }
-        public Point CreateFood()
+        public Point CreateFood(Snake snake)
         {
             Random rand = new Random();
             Point p = new Point(rand.Next(this.widht), rand.Next(this.height), c);

@@ -20,7 +20,10 @@ namespace snake
             }
             this.Draw();
         }
-
+        internal List<Point> GetListPoint()
+        {
+            return listPoint;
+        }
         internal void Move()
         {
             Point tail = listPoint.First();
