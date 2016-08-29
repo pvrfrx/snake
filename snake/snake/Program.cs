@@ -16,11 +16,12 @@ namespace snake
             HorizontalLine downBorder = new HorizontalLine(0, 78, 24, '*');
             VerticalLine leftBorder = new VerticalLine(0, 0, 24, '*');
             VerticalLine rightBorder = new VerticalLine(78, 0, 25, '*');
-
-            upBorder.Draw();
-            downBorder.Draw();
-            leftBorder.Draw();
-            rightBorder.Draw();
+            List<Figure> let = new List<Figure>();
+ 
+            let.Add(upBorder);
+            let.Add(downBorder);
+            let.Add(leftBorder);
+            let.Add(rightBorder);
 
             Point tailSnake1 = new Point(5, 5, '$');
             Snake snake1 = new Snake(tailSnake1, 1, Direction.DOWN);
@@ -28,6 +29,10 @@ namespace snake
             Point food = foodCreator.CreateFood(snake1);
             while (true) //Выход по клавише Q
             {
+                if (snake1.IsHit(let) /*|| snake1.IsHitTail()*/)
+                {
+                    break;
+                }
                 if (snake1.Eat(food))
                 {
                     food = foodCreator.CreateFood(snake1);
@@ -41,6 +46,9 @@ namespace snake
                 snake1.Move();
                 Thread.Sleep(200);
             }
+            Console.Clear();
+            Console.WriteLine("GameOver");
+            Console.Read();
         }
     }
 }

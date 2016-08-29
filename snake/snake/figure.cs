@@ -16,5 +16,9 @@ namespace snake
                 item.Draw();
             }
         }
+        public List<Point> GetListPoint()
+        {
+            return this.listPoint;
+        }
     }
 }

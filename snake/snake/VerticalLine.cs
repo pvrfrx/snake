@@ -14,6 +14,7 @@ namespace snake
             {
                 listPoint.Add(new Point(x, i, c));
             }
+            Draw();
         }
     }
 }

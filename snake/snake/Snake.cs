@@ -20,10 +20,7 @@ namespace snake
             }
             this.Draw();
         }
-        internal List<Point> GetListPoint()
-        {
-            return listPoint;
-        }
+
         internal void Move()
         {
             Point tail = listPoint.First();
@@ -40,6 +37,37 @@ namespace snake
             head.Move(this.direction, 1);
             return head;
         }
+
+        internal bool IsHit(List<Figure> let)
+        {
+            foreach (Figure itemFigure in let)
+            {
+                if (IsHit(itemFigure.GetListPoint())) return true;
+            }
+            return false;                
+        }
+
+        private bool IsHit(List<Point> letListPoint)
+        {
+            foreach (Point itemPoint in letListPoint)
+            {
+                if (IsHit(itemPoint)) return true;
+            }
+            return false;
+        }
+
+        private bool IsHit(Point itemPoint)
+        {
+            Point headSnake = this.GetListPoint().Last();
+            if (headSnake.EqualsCoordinate(itemPoint)) return true;
+            else return false;
+        }
+
+     /*   internal bool IsHitTail()
+        {
+            throw new NotImplementedException();
+        }*/
+
         private Point GetPrevPoint()
         {
             Point head = new Point(listPoint.First());
@@ -49,10 +77,10 @@ namespace snake
 
         internal void ChangeDirection(ConsoleKeyInfo key)
         {
-            if (key.Key == ConsoleKey.RightArrow) this.direction = Direction.RIGHT;
-            else if (key.Key == ConsoleKey.LeftArrow) this.direction = Direction.LEFT;
-            else if (key.Key == ConsoleKey.UpArrow) this.direction = Direction.UP;
-            else if (key.Key == ConsoleKey.DownArrow) this.direction = Direction.DOWN;
+            if (key.Key == ConsoleKey.RightArrow && this.direction!=Direction.LEFT) this.direction = Direction.RIGHT; //нельзя разворачиваться на 180 градусов
+            else if (key.Key == ConsoleKey.LeftArrow && this.direction != Direction.RIGHT) this.direction = Direction.LEFT;
+            else if (key.Key == ConsoleKey.UpArrow && this.direction != Direction.DOWN) this.direction = Direction.UP;
+            else if (key.Key == ConsoleKey.DownArrow && this.direction != Direction.UP) this.direction = Direction.DOWN;
         }
 
         internal bool Eat(Point p)
