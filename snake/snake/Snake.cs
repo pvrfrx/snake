@@ -21,14 +21,19 @@ namespace snake
             this.Draw();
         }
 
-        internal void Move()
+        internal bool Move(List<Figure> let)
         {
             Point tail = listPoint.First();
             Point head = GetNextPoint();
             listPoint.Add(head);
+            if (this.IsHit(let) || this.IsHitTail())
+            {
+                return false;
+            }
             tail.Clear();
             head.Draw();
             listPoint.Remove(tail);
+            return true;
         }
 
         private Point GetNextPoint()
@@ -103,7 +108,7 @@ namespace snake
         private List<Point> AddItemInFirstPosition(List<Point> listPoint)
         {
             List<Point> result = new List<Point>();
-            result.Add(GetPrevPoint());
+            result.Add(new Point(-1,-1,' '));
             foreach (Point item in listPoint)
             {
                 result.Add(item);

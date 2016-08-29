@@ -29,10 +29,7 @@ namespace snake
             Point food = foodCreator.CreateFood(snake1);
             while (true) //Выход по клавише Q
             {
-                if (snake1.IsHit(let) || snake1.IsHitTail())
-                {
-                    break;
-                }
+                
                 if (snake1.Eat(food))
                 {
                     food = foodCreator.CreateFood(snake1);
@@ -43,7 +40,10 @@ namespace snake
                     if (key.Key == ConsoleKey.Q) break;
                     else snake1.ChangeDirection(key);
                 }
-                snake1.Move();
+                if (!snake1.Move(let))
+                {
+                    break;
+                }
                 Thread.Sleep(200);
             }
             Console.Clear();
