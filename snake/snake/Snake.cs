@@ -47,6 +47,14 @@ namespace snake
             return false;                
         }
 
+        internal bool IsHitTail()
+        {
+            List<Point> snakeWithoutHead = new List<Point>(this.GetListPoint());
+            snakeWithoutHead.Remove(snakeWithoutHead.Last());
+            if (this.IsHit(snakeWithoutHead)) return true;
+            else return false;
+        }
+
         private bool IsHit(List<Point> letListPoint)
         {
             foreach (Point itemPoint in letListPoint)
@@ -58,15 +66,9 @@ namespace snake
 
         private bool IsHit(Point itemPoint)
         {
-            Point headSnake = this.GetListPoint().Last();
-            if (headSnake.EqualsCoordinate(itemPoint)) return true;
+            if (this.GetListPoint().Last().EqualsCoordinate(itemPoint)) return true;
             else return false;
         }
-
-     /*   internal bool IsHitTail()
-        {
-            throw new NotImplementedException();
-        }*/
 
         private Point GetPrevPoint()
         {

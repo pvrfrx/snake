@@ -29,7 +29,7 @@ namespace snake
             Point food = foodCreator.CreateFood(snake1);
             while (true) //Выход по клавише Q
             {
-                if (snake1.IsHit(let) /*|| snake1.IsHitTail()*/)
+                if (snake1.IsHit(let) || snake1.IsHitTail())
                 {
                     break;
                 }

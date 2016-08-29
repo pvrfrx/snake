@@ -24,8 +24,8 @@ namespace snake
             int y=1; 
             for (int i = 0; i < 1; i++)
             {
-                x = rand.Next(this.widht);
-                y = rand.Next(this.height); 
+                x = rand.Next(1,this.widht-1);
+                y = rand.Next(1,this.height-1); 
                 foreach (Point item in snake.GetListPoint())
                 {
                     if (item.x==x && item.y==y)
